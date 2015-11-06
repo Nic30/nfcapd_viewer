@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>nfcad_viewer</title>
+{% if REFRESH_INTERVAL >0 %}
+	<meta http-equiv="refresh" content="{{REFRESH_INTERVAL}}" >
+{% endif %}
+
+<script type="text/javascript">
+	function post(url) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+			}
+		}
+		xhttp.open("POST", url, true);
+		xhttp.send();
+	}
+</script>
+</head>
+<table border="1" style="width: 100%">
+	<tr>
+		{% for h in head %}
+			<td>{{h}}</td> 
+		{% endfor %}
+	</tr>
+	{% for f in flows %}
+	<tr>
+		{% for c in f %}
+		<td>{{c}}</td> 
+		{% endfor %}
+	</tr>
+	{% endfor %}
+</table>
+{% for i in info %} 
+	{{ i }}<br> 
+{% endfor %}
+<br>
+<button onclick="post('/clear')">Clear</button>
+</body>
+</html>
