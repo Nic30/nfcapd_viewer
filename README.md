@@ -5,7 +5,7 @@ run by nfcapd_viewer/nfcapd_viewer.py
 written in python3
 
 
-## instalation:
+## requirements:
 ```shell
 
 sudo apt-get install python3 python3-pip
